@@ -21,9 +21,16 @@ RUN python3 -m pip install Mopidy-SoundCloud
 RUN python3 -m pip install Mopidy-Spotify
 RUN python3 -m pip install Mopidy-Youtube
 
+# cleanup
+RUN apt-get purge --auto-remove -y curl gcc
+RUN rm -rf /tmp/*
+RUN rm -rf /var/tmp/*
+RUN rm -rf ~/.cache
+RUN rm -rf /etc/mopidy
+
 EXPOSE 6600 6680 5555/udp
 
-VOLUME ["/data/mopidy"]
+VOLUME ["/data/mopidy", "/music"]
 
 USER mopidy
 
