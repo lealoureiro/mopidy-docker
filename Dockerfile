@@ -4,25 +4,28 @@ FROM debian:buster-slim
 RUN apt-get update
 RUN apt-get install -y apt-utils
 RUN apt-get install -y wget gnupg2 python3-pip
+RUN apt-get install -y gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libavcodec-extra
+
+# install codecs
 
 # install mopidy
 RUN wget -q -O - https://apt.mopidy.com/mopidy.gpg | apt-key add -
 RUN wget -q -O /etc/apt/sources.list.d/mopidy.list https://apt.mopidy.com/buster.list
 RUN apt-get update
-RUN apt-get install -y mopidy libspotify-dev
-
+RUN apt-get install -y libspotify-dev=12.1.51-1 mopidy=3.0.2-1
 # install extensions
-RUN python3 -m pip install pyspotify
-RUN python3 -m pip install Mopidy-MPD
-RUN python3 -m pip install Mopidy-Local
-RUN python3 -m pip install Mopidy-Iris
-RUN python3 -m pip install Mopidy-TuneIn
-RUN python3 -m pip install Mopidy-SoundCloud
-RUN python3 -m pip install Mopidy-Spotify
-RUN python3 -m pip install Mopidy-Youtube
+RUN python3 -m pip install pyspotify==2.1.3
+RUN python3 -m pip install Mopidy-MPD==3.0.0
+RUN python3 -m pip install Mopidy-Local==3.1.1
+RUN python3 -m pip install Mopidy-Iris==3.46.0
+RUN python3 -m pip install Mopidy-TuneIn==1.0.0
+RUN python3 -m pip install Mopidy-SoundCloud==3.0.0
+RUN python3 -m pip install Mopidy-Spotify==4.0.1
+RUN python3 -m pip install Mopidy-Youtube==3.0
 
 # cleanup
-RUN apt-get purge --auto-remove -y curl gcc
+# RUN apt-get purge --auto-remove -y curl gcc
+# RUN apt-get clean
 RUN rm -rf /tmp/*
 RUN rm -rf /var/tmp/*
 RUN rm -rf ~/.cache
