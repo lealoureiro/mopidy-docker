@@ -4,7 +4,7 @@ FROM debian:buster-slim
 RUN apt-get update
 RUN apt-get install -y apt-utils
 RUN apt-get install -y wget gnupg2 python3-pip
-RUN apt-get install -y gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libavcodec-extra
+RUN apt-get install -y gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libavcodec-extra gstreamer1.0-libav
 
 # install codecs
 
