@@ -3,7 +3,7 @@ FROM debian:buster-slim
 # install basic tools
 RUN apt-get update
 RUN apt-get install -y apt-utils
-RUN apt-get install -y wget gnupg2 python3-pip
+RUN apt-get install -y wget gnupg2 python3-pip git
 RUN apt-get install -y gstreamer1.0-plugins-good gstreamer1.0-plugins-bad gstreamer1.0-plugins-ugly libavcodec-extra gstreamer1.0-libav
 
 # install codecs
@@ -17,11 +17,12 @@ RUN apt-get install -y libspotify-dev=12.1.51-1 mopidy=3.0.2-1
 RUN python3 -m pip install pyspotify==2.1.3
 RUN python3 -m pip install Mopidy-MPD==3.0.0
 RUN python3 -m pip install Mopidy-Local==3.1.1
-RUN python3 -m pip install Mopidy-Iris==3.46.0
+RUN python3 -m pip install Mopidy-Iris==3.48.0
+RUN python3 -m pip install Mopidy-MusicBox-Webclient==3.1.0
 RUN python3 -m pip install Mopidy-TuneIn==1.0.0
 RUN python3 -m pip install Mopidy-SoundCloud==3.0.0
 RUN python3 -m pip install Mopidy-Spotify==4.0.1
-RUN python3 -m pip install Mopidy-Youtube==3.0
+RUN python3 -m pip install -U git+https://github.com/natumbri/mopidy-youtube.git@feature/autoplay
 
 # cleanup
 # RUN apt-get purge --auto-remove -y curl gcc
