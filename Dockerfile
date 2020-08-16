@@ -17,12 +17,12 @@ RUN apt-get install -y libspotify-dev mopidy=3.0.2-1
 RUN python3 -m pip install pyspotify==2.1.3
 RUN python3 -m pip install Mopidy-MPD==3.0.0
 RUN python3 -m pip install Mopidy-Local==3.1.1
-RUN python3 -m pip install Mopidy-Iris==3.50.0
+RUN python3 -m pip install Mopidy-Iris==3.51.0
 RUN python3 -m pip install Mopidy-MusicBox-Webclient==3.1.0
 RUN python3 -m pip install Mopidy-TuneIn==1.0.0
 RUN python3 -m pip install Mopidy-SoundCloud==3.0.0
 RUN python3 -m pip install Mopidy-Spotify==4.0.1
-RUN python3 -m pip install Mopidy-Youtube==3.0
+RUN python3 -m pip install Mopidy-Youtube==3.1
 
 # cleanup
 # RUN apt-get purge --auto-remove -y curl gcc
