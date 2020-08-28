@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t lealoureiro/mopidy:1.9.0 .
+docker build -t lealoureiro/mopidy:1.9.1 .
